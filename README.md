@@ -6,12 +6,11 @@
 
 ## 🚀 Features
 
-- Query upcoming events by date, location, or topic  
-- Automatic event reminders and notifications  
-- Intelligent suggestions: “You might like this event”  
-- CRUD operations: create, update, delete events  
-- Conversational interface with natural language understanding  
-- Integration-ready (can be plugged into Slack / Discord / Web UI)  
+- Answer user queries about events quickly and accurately  
+- Natural language understanding for conversational interaction  
+- Fetch information about events based on user questions  
+- Can be integrated into a chat interface (Slack / Discord / Web UI)  
+- Provides clear and concise event information in real-time 
 
 ---
 
@@ -19,11 +18,10 @@
 
 | Component | Description |
 |-----------|-------------|
-| **Backend / Logic** | Python (Flask / FastAPI / Django) with AI modules |
-| **AI / NLP** | OpenAI / GPT‑API or other language models |
-| **Database** | SQLite / PostgreSQL / MongoDB (depending on environment) |
-| **Frontend** | Web UI (React / Vue) or Bot UI (Slack / Discord) |
-| **Deployment** | Docker, Heroku, AWS, or any cloud hosting |
+| **Backend / Logic** | Python (FastAPI ) with AI modules |
+| **AI / NLP** | OpenAI / lama |
+| **Frontend** | Web UI (React)|
+| **Deployment** | Docker, digitalocean|
 
 ---
 
@@ -160,7 +158,7 @@ Please follow the existing code style, write tests (if applicable), and update t
 
 ## ✍️ License & Credits
 
-- **License:** MIT (or your choice)  
+- **License:** MIT  
 - **Credits:**  
   - AI / NLP models / APIs  
   - Open source packages & libraries  
