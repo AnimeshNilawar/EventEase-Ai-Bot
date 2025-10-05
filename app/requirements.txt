@@ -1,0 +1,17 @@
+# Web framework
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+pydantic-settings==2.11.0
+
+# AI/ML libraries
+gradientai==1.13.1      # Updated to latest available version
+requests==2.32.3
+
+# Embedding fallbacks:
+sentence-transformers==3.0.1
+openai==1.45.0       # only if you want OpenAI fallback
+
+# File handling
+python-multipart==0.0.19
+PyPDF2==3.0.1
+langchain-text-splitters==0.3.11
