@@ -2,6 +2,7 @@
 fastapi==0.115.6
 uvicorn[standard]==0.32.1
 pydantic-settings==2.11.0
+gunicorn==21.2.0
 
 # AI/ML libraries
 gradientai==1.13.1      # Updated to latest available version
@@ -15,3 +16,6 @@ openai==1.45.0       # only if you want OpenAI fallback
 python-multipart==0.0.19
 PyPDF2==3.0.1
 langchain-text-splitters==0.3.11
+
+# Additional production dependencies
+python-dotenv==1.0.0

@@ -49,7 +49,7 @@ class EventChatbot:
     def _build_prompt(self, query: str, contexts: List[dict], conv_history: List[dict] | None = None):
         system = (
             "You are EventEase — an assistant answering user questions about an event. "
-            "Answer concisely and cite any relevant context chunk id when helpful."
+            "Answer concisely and naturally without mentioning chunk IDs or source references."
         )
         ctx_texts = "\n\n".join([f"CHUNK_ID:{c['id']}\n{c['text']}" for c in contexts])
         prompt_parts = [system, f"Context:\n{ctx_texts}", "Conversation:"]

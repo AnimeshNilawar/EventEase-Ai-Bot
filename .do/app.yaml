@@ -1,0 +1,53 @@
+name: eventease-ai-bot
+services:
+  # Backend FastAPI service
+  - name: backend
+    source_dir: /app
+    github:
+      repo: AnimeshNilawar/EventEase-Ai-Bot
+      branch: main
+    run_command: uvicorn main:app --host 0.0.0.0 --port 8080
+    environment_slug: python
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    http_port: 8080
+    health_check:
+      http_path: /health
+    envs:
+      - key: DEBUG
+        value: "False"
+      - key: FRONTEND_ORIGIN
+        value: "${frontend.PUBLIC_URL}"
+      - key: DATA_DIR
+        value: "/tmp/data"
+      - key: VECTOR_DIR
+        value: "/tmp/data/vector_store"
+      - key: USE_GRADIENT
+        value: "True"
+      - key: GRADIENT_API_BASE
+        value: "https://inference.do-ai.run"
+      - key: GRADIENT_MODEL
+        value: "gpt-4o-mini"
+      - key: USE_GRADIENT_EMBEDDINGS
+        value: "True"
+      - key: GRADIENT_API_KEY
+        type: SECRET
+        value: gradient_api_key
+      - key: GRADIENT_EMBEDDING_MODEL
+        type: SECRET
+        value: gradient_embedding_model
+
+# Frontend static site
+static_sites:
+  - name: frontend
+    source_dir: /eventease-frontend
+    github:
+      repo: AnimeshNilawar/EventEase-Ai-Bot
+      branch: main
+    build_command: npm run build
+    output_dir: dist
+    environment_slug: node-js
+    catchall_document: index.html
+    envs:
+      - key: VITE_API_URL
+        value: "${backend.PUBLIC_URL}"

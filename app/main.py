@@ -11,12 +11,19 @@ from chatbot import EventChatbot
 
 app = FastAPI(title="EventEase Backend")
 
-# CORS (allow frontend dev)
+# CORS configuration
+allowed_origins = ["*"] if settings.DEBUG else [
+    settings.FRONTEND_ORIGIN,
+    "https://*.ondigitalocean.app",  # Allow DO app platform domains
+    "http://localhost:3000",  # Local development
+    "http://localhost:5173"   # Vite dev server
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"] if settings.DEBUG else [settings.FRONTEND_ORIGIN],
+    allow_origins=allowed_origins,
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
 )
 
